@@ -1,4 +1,4 @@
-class CreateName {
+class Registration {
   static nameKey = "not-fight-club__name";
 
   static render() {

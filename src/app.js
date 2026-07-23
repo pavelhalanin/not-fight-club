@@ -75,8 +75,8 @@ class App {
           app.innerHTML = AboutPage.render();
           return;
 
-        case "#/create-name":
-          app.innerHTML = CreateName.render();
+        case "#/registration":
+          app.innerHTML = Registration.render();
           return;
 
         case "#/change-name":

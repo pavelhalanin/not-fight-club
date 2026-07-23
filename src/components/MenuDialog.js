@@ -35,8 +35,8 @@ class MenuDialog {
               </button>
             </li>
             <li>
-              <button onclick="${this.name}.navigate('/create-name')">
-                Create name
+              <button onclick="${this.name}.navigate('/registration')">
+                Registracion
               </button>
             </li>
             <li>
