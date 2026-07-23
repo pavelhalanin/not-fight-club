@@ -79,16 +79,12 @@ class App {
           app.innerHTML = Registration.render();
           return;
 
-        case "#/change-name":
-          app.innerHTML = "change name";
+        case "#/character":
+          app.innerHTML = `character`;
           return;
 
-        case "#/change-haracter":
-          app.innerHTML = "change haracter";
-          return;
-
-        case "#/about-haracter":
-          app.innerHTML = "about haracter";
+        case "#/settings":
+          app.innerHTML = "settings";
           return;
 
         case "#/battle":

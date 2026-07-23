@@ -36,22 +36,17 @@ class MenuDialog {
             </li>
             <li>
               <button onclick="${this.name}.navigate('/registration')">
-                Registracion
+                Registration
               </button>
             </li>
             <li>
-              <button onclick="${this.name}.navigate('/change-name')">
-                Change name
+              <button onclick="${this.name}.navigate('/character')">
+                Character
               </button>
             </li>
             <li>
-              <button onclick="${this.name}.navigate('/change-haracter')">
-                Change haracter
-              </button>
-            </li>
-            <li>
-              <button onclick="${this.name}.navigate('/about-haracter')">
-                About haracter
+              <button onclick="${this.name}.navigate('/settings')">
+                Settings
               </button>
             </li>
             <li>
