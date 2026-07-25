@@ -13,7 +13,7 @@ class GameSelectedUser {
 
     const USER = USERS.find((element) => element.id === SELECTED_USER_ID);
 
-    return USER.id ? USER.id : "";
+    return USER && USER.id ? USER.id : "";
   }
 
   static set(userId) {

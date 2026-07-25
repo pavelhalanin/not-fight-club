@@ -1,0 +1,11 @@
+.name_widget__content {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+
+  padding: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid var(--site-color);
+  color: var(--site-color);
+}

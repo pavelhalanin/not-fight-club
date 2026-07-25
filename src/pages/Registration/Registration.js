@@ -3,10 +3,22 @@ class Registration {
 
   static render() {
     return `
+      ${NameWidget.render()}
       <div class="game_name__wrapper">
         <form class="game_name__form" onsubmit="${this.name}.onsubmit(event)">
-          <p>Write your name:</p>
-          <input type="text" id="game__input_name" name="game_name" value="" placeholder="Name" minlength="3" required>
+          <p>Register new player:</p>
+          <input
+            type="text"
+            id="game__input_name"
+            name="game_name"
+            value=""
+            placeholder="Name"
+            minlength="3"
+            pattern="^\\s*\\S(?:.*\\S){2,}\\s*$"
+            oninvalid="this.setCustomValidity('Please enter at least 3 characters (leading/trailing spaces are ignored)')"
+            oninput="this.setCustomValidity('')"
+            required
+          >
           <input type="submit" value="Send">
         </form>
       </div>
@@ -30,9 +42,10 @@ class Registration {
     event.preventDefault();
     const FORM_DATA = new FormData(event.target);
     const DATA = Object.fromEntries(FORM_DATA.entries());
-    console.log(DATA);
 
-    GameUsers.addUserByName(DATA.game_name);
+    const NAME = `${DATA.game_name}`.trim();
+
+    GameUsers.addUserByName(NAME);
 
     App.navigate("/");
   }

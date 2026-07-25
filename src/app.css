@@ -27,3 +27,20 @@ body {
   margin: 0 auto;
   max-width: 980px;
 }
+
+.content {
+  padding-top: 32px;
+}
+
+.btn {
+  background-color: var(--site-color);
+  color: white;
+  border: 1px solid var(--site-color);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.btn:hover {
+  color: var(--site-color);
+  background-color: transparent;
+}

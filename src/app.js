@@ -99,21 +99,21 @@ class App {
           return;
 
         case "#/character":
-          app.innerHTML = `character`;
+          app.innerHTML = `${NameWidget.render()}character`;
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 
           return;
 
         case "#/settings":
-          app.innerHTML = "settings";
+          app.innerHTML = `${NameWidget.render()}settings`;
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 
           return;
 
         case "#/battle":
-          app.innerHTML = `battle`;
+          app.innerHTML = `${NameWidget.render()}battle`;
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 
