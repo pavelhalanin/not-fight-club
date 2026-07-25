@@ -53,4 +53,23 @@ class GameUsers {
     localStorage.setItem(this.key, JSON.stringify(USERS));
     console.log(`New name "${name}" for id = "${USER_ID}"`);
   }
+
+  static changeAvatarId(id_avatar) {
+    const USERS = this.get();
+
+    const USER_ID = GameSelectedUser.get();
+
+    if (!USER_ID) {
+      return;
+    }
+
+    for (let i = 0; i < USERS.length; i++) {
+      if (USERS[i].id === USER_ID) {
+        USERS[i].id_avatar = id_avatar;
+      }
+    }
+
+    localStorage.setItem(this.key, JSON.stringify(USERS));
+    console.log(`New id_avatar "${id_avatar}" for id = "${USER_ID}"`);
+  }
 }

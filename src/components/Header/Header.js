@@ -5,7 +5,7 @@ class Header {
     const ARRAY = [
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
-      { name: "Registracion", href: "/registration" },
+      { name: "Registration", href: "/registration" },
       { name: "Character", href: "/character" },
       { name: "Settings", href: "/settings" },
       { name: "Battle", href: "/battle" },

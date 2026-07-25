@@ -16,37 +16,42 @@ class Character {
       `;
     }
 
-    const SELECTED_AVATAR_ID = GameSelectedAvatar.get();
-    const POKEMON = GamePokemon.getById(SELECTED_AVATAR_ID);
+    const AVATAR_ID = USER?.id_avatar || "";
+    const POKEMON = GamePokemon.getById(AVATAR_ID);
 
     const POKEMON_ARRAY = GamePokemon.get();
 
     return `
       <div class="content">
         <div class="container">
-          <div class="home__content">
-            <div>Name: ${USER.name}</div>
-            <div class="character_image__container">
-              ${!POKEMON ? "?" : `<img src="${POKEMON.image}" alt="">`}
+          <div class="character__container">
+            <div>
+              <div>
+                Your Name: ${USER.name}
+                <button onclick="App.navigate('/settings');">change name</button>
+              </div>
+              <div class="character_image__container">
+                ${!POKEMON ? "?" : `<img src="${POKEMON.image}" alt="">`}
+              </div>
             </div>
-          </div>
-          <div class="home__content">
-            <p>Change avatar</p>
-            <div class="avatar_array__container">
-              <ul>
-                ${POKEMON_ARRAY.map((e) => {
-                  return `
-                    <li>
-                      <button onclick="
-                        GameSelectedAvatar.set('${e.id}');
-                        App.navigate('/character');
-                      ">
-                        <img src="${e.image}" alt="">
-                      </button>
-                    </li>
-                  `;
-                }).join("")}
-              </ul>
+            <div>
+              <div>Change avatar</div>
+              <div class="avatar_array__container">
+                <ul>
+                  ${POKEMON_ARRAY.map((e) => {
+                    return `
+                      <li>
+                        <button onclick="
+                          GameUsers.changeAvatarId('${e.id}');
+                          App.navigate('/character');
+                        ">
+                          <img src="${e.image}" alt="">
+                        </button>
+                      </li>
+                    `;
+                  }).join("")}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

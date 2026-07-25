@@ -7,7 +7,7 @@ class Settings {
     const NAME = `${DATA.game_name}`.trim();
 
     GameUsers.changeUserName(NAME);
-    App.navigate("/settings");
+    App.navigate("/character");
   }
 
   static render() {

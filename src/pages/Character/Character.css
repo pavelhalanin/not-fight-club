@@ -1,3 +1,15 @@
+.character__container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.character__container > div {
+  border: 1px solid var(--site-color);
+  padding: 16px;
+  border-radius: 8px;
+}
+
 .character_image__container {
   width: 200px;
   height: 200px;

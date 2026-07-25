@@ -20,6 +20,7 @@ class Registration {
           >
           <input type="submit" value="Send">
         </form>
+        ${SignInArray.render()}
       </div>
     `;
   }
@@ -45,7 +46,6 @@ class Registration {
     const NAME = `${DATA.game_name}`.trim();
 
     GameUsers.addUserByName(NAME);
-    GameSelectedAvatar.set("");
 
     App.navigate("/character");
   }

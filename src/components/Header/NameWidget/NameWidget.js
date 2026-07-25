@@ -7,8 +7,9 @@ class NameWidget {
       return "";
     }
 
-    const POKEMON_ID = GameSelectedAvatar.get();
-    const POKEMON = GamePokemon.getById(POKEMON_ID);
+    const AVATAR_ID = USER?.id_avatar || "";
+
+    const POKEMON = GamePokemon.getById(AVATAR_ID);
     console.log(POKEMON);
 
     if (!POKEMON) {
