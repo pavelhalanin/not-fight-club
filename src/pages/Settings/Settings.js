@@ -44,6 +44,7 @@ class Settings {
                 value="${USER.name}"
                 placeholder="Name"
                 minlength="3"
+                maxlength="24"
                 pattern="^\\s*\\S(?:.*\\S){2,}\\s*$"
                 oninvalid="this.setCustomValidity('Please enter at least 3 characters (leading/trailing spaces are ignored)')"
                 oninput="this.setCustomValidity('')"
