@@ -45,6 +45,7 @@ class App {
 
   static navigate(url) {
     window.location.hash = `#${url}`;
+    this.renderRoute();
   }
 
   static async renderRoute() {
@@ -76,9 +77,11 @@ class App {
       const AUDIO = document.getElementById("root_audio");
       switch (path) {
         case "":
+          App.navigate("/");
+          break;
+
         case "#/":
           app.innerHTML = Home.render();
-          App.navigate("/");
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 
@@ -106,7 +109,7 @@ class App {
           return;
 
         case "#/settings":
-          app.innerHTML = `${NameWidget.render()}settings`;
+          app.innerHTML = Settings.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 

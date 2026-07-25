@@ -34,4 +34,23 @@ class GameUsers {
     const USERS = this.get();
     return USERS.find((element) => element.id === id);
   }
+
+  static changeUserName(name) {
+    const USERS = this.get();
+
+    const USER_ID = GameSelectedUser.get();
+
+    if (!USER_ID) {
+      return;
+    }
+
+    for (let i = 0; i < USERS.length; i++) {
+      if (USERS[i].id === USER_ID) {
+        USERS[i].name = name;
+      }
+    }
+
+    localStorage.setItem(this.key, JSON.stringify(USERS));
+    console.log(`New name "${name}" for id = "${USER_ID}"`);
+  }
 }
