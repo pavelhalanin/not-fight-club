@@ -12,12 +12,14 @@ class Audio {
 
   static renderAudioDisclaimer() {
     return `
-      <div class="audio_disclaimer__content">
-        <h2>Audio Disclaimer</h2>
-        <p>You will be restored to your previous location. If you disconnected during combat, you will re-enter the fight at the exact same moment.</p>
-        <p>Why click? Browser autoplay policy requires user interaction.</p>
-        <p><label class="audio_disclaimer__button" for="audio_disclaimer_checkbox">Click to continue</label></p>
-        <div class="audio_disclaimer__progress"></div>
+      <div style="display: flex;">
+        <div class="audio_disclaimer__content">
+          <h2>Audio Disclaimer</h2>
+          <p>You will be restored to your previous location. If you disconnected during combat, you will re-enter the fight at the exact same moment.</p>
+          <p>Why click? Browser autoplay policy requires user interaction.</p>
+          <p><label class="audio_disclaimer__button" for="audio_disclaimer_checkbox">Click to continue</label></p>
+          <div class="audio_disclaimer__progress"></div>
+        </div>
       </div>
     `;
   }
