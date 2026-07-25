@@ -21,6 +21,8 @@ class GameUsers {
 
     const USER = {
       id: generatorId(),
+      id_avatar: "",
+      created_at: new Date().toJSON().slice(0, 19),
       name: `${username}`,
     };
 

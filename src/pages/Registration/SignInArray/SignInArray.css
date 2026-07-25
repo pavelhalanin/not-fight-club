@@ -18,16 +18,17 @@
 
 .sign_in_array__container > ul > li {
   list-style-type: none;
+  position: relative;
 }
 
 .sign_in_array__container > ul > li > button {
-  width: 200px;
-  height: 180px;
+  width: 220px;
+  height: 200px;
   border: 1px solid var(--site-color);
   border-radius: 8px;
   background-color: transparent;
   color: var(--site-color);
-  padding: 0;
+  padding: 8px;
 
   display: flex;
   flex-direction: column;
@@ -51,4 +52,13 @@
   max-height: 140px;
   width: auto;
   height: auto;
+}
+
+.sign_in_array__time {
+  text-align: right;
+  color: lightgray;
+
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
 }

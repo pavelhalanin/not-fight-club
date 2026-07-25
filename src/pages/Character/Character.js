@@ -21,6 +21,9 @@ class Character {
 
     const POKEMON_ARRAY = GamePokemon.get();
 
+    const CREATED_AT = USER?.created_at || "";
+    const CREATED_AT_FORMATED = DateHelper.getFormatDateTime(CREATED_AT);
+
     return `
       <div class="content">
         <div class="container">
@@ -30,6 +33,7 @@ class Character {
                 Your Name: ${USER.name}
                 <button onclick="App.navigate('/settings');">change name</button>
               </div>
+              <div>Created at: ${CREATED_AT_FORMATED}</div>
               <div class="character_image__container">
                 ${!POKEMON ? "?" : `<img src="${POKEMON.image}" alt="">`}
               </div>

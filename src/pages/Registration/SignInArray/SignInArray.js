@@ -17,6 +17,10 @@ class SignInArray {
             const POKEMON = GamePokemon.getById(AVATAR_ID);
             const IMAGE = POKEMON?.image || "";
 
+            const CREATED_AT = e?.created_at || "";
+            const CREATED_AT_FORMATED =
+              DateHelper.getFormatDateTime(CREATED_AT);
+
             return `
               <li>
                 <button onclick="
@@ -27,6 +31,7 @@ class SignInArray {
                     <img src="${IMAGE}" alt="">
                   </div>
                   <div>${e.name}</div>
+                  <div class="sign_in_array__time">${CREATED_AT_FORMATED}</div>
                 </button>
               </li>
             `;
