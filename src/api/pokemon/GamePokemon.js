@@ -30,7 +30,7 @@ class GamePokemon {
       {
         id: "136",
         name: "Flareon",
-        image: "./assets/pokemon/106/106.webp",
+        image: "./assets/pokemon/136/136.webp",
       },
       {
         id: "186",
