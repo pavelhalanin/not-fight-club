@@ -7,6 +7,12 @@ class App {
       return;
     }
 
+    DIV.innerHTML = Audio.renderAudioDisclaimer();
+
+    while (Audio.AudioDisclaimerIsSubmitted()) {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+    }
+
     DIV.innerHTML = `
       <button
         class="app__dialog_burger_button"
@@ -63,36 +69,57 @@ class App {
         });
         return;
       }
-
+      const AUDIO = document.getElementById("root_audio");
       switch (path) {
         case "":
         case "#/":
           app.innerHTML = "home";
           window.location.hash = "#/";
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
 
         case "#/about":
           app.innerHTML = AboutPage.render();
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
 
         case "#/registration":
           app.innerHTML = Registration.render();
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
 
         case "#/character":
           app.innerHTML = `character`;
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
 
         case "#/settings":
           app.innerHTML = "settings";
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
 
         case "#/battle":
-          app.innerHTML = "battle";
+          app.innerHTML = `battle`;
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
+
           return;
 
         default:
           app.innerHTML = Error404Page.render();
+
+          Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
+
           return;
       }
     } catch (exception) {

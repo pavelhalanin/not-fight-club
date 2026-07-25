@@ -6,6 +6,16 @@ class MenuDialog {
     window.location.hash = `#${hash}`;
   }
 
+  static open() {
+    const BUTTON = document.querySelector(".app__dialog_burger_button");
+
+    if (!BUTTON) {
+      return;
+    }
+
+    BUTTON.click();
+  }
+
   static close() {
     const BUTTON = document.createElement("button");
     BUTTON.setAttribute("commandfor", "app__dialog_menu");

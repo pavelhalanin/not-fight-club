@@ -7,17 +7,21 @@
     <title>Not fight club</title>
 
     <link rel="stylesheet" href="src/app.css">
-    <link rel="stylesheet" href="./src/components/MenuDialog.css">
+    <link rel="stylesheet" href="./src/components/MenuDialog/MenuDialog.css">
     <link rel="stylesheet" href="./src/pages/Registration/Registration.css">
+    <link rel="stylesheet" href="./src/components/Audio/Audio.css">
 </head>
 
 <body>
+    <input type="checkbox" id="audio_disclaimer_checkbox" style="display: none;">
+    <video id="root_audio" style="display: none;"></video>
     <div id="root"></div>
     <script src="./src/app.js"></script>
-    <script src="./src/components/MenuDialog.js"></script>
+    <script src="./src/components/MenuDialog/MenuDialog.js"></script>
     <script src="./src/pages/AboutPage/AboutPage.js"></script>
     <script src="./src/pages/Registration/Registration.js"></script>
     <script src="./src/pages/Error404/Error404Page.js"></script>
+    <script src="./src/components/Audio/Audio.js"></script>
     <script>
         App.render();
     </script>
