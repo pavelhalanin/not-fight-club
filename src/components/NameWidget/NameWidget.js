@@ -7,9 +7,27 @@ class NameWidget {
       return "";
     }
 
+    const POKEMON_ID = GameSelectedAvatar.get();
+    const POKEMON = GamePokemon.getById(POKEMON_ID);
+    console.log(POKEMON);
+
+    if (!POKEMON) {
+      return `
+        <span class="name_widget__content">
+          <span class="name_widget__img">
+            ?
+          </span>
+          &lt;${USER.name}&gt;
+        </span>
+      `;
+    }
+
     return `
       <span class="name_widget__content">
-        Selected player: &lt;${USER.name}&gt;
+        <span class="name_widget__img">
+          <img src="${POKEMON.image}" alt="">
+        </span>
+        &lt;${USER.name}&gt;
       </span>
     `;
   }

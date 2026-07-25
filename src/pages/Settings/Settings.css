@@ -1,0 +1,36 @@
+.avatar_array__container > ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar_array__container > ul > li {
+  list-style-type: none;
+}
+
+.avatar_array__container > ul > li > button {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--site-color);
+  background-color: transparent;
+  border-radius: 4px;
+  transition: all 1s ease;
+}
+
+.avatar_array__container > ul > li > button:hover {
+  box-shadow: 0 0 8px black;
+}
+
+.avatar_array__container > ul > li > button > img {
+  width: 48px;
+  height: 48px;
+}

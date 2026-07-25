@@ -46,7 +46,8 @@ class Registration {
     const NAME = `${DATA.game_name}`.trim();
 
     GameUsers.addUserByName(NAME);
+    GameSelectedAvatar.set("");
 
-    App.navigate("/");
+    App.navigate("/settings");
   }
 }
