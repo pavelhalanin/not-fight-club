@@ -3,7 +3,7 @@ class MenuDialog {
 
   static navigate(hash) {
     this.close();
-    window.location.hash = `#${hash}`;
+    App.navigate(hash);
   }
 
   static open() {

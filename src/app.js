@@ -43,6 +43,10 @@ class App {
     window.addEventListener("popstate", this.renderRoute);
   }
 
+  static navigate(url) {
+    window.location.hash = `#${url}`;
+  }
+
   static async renderRoute() {
     const path = window.location.hash;
     const app = document.getElementById("app");
@@ -73,8 +77,8 @@ class App {
       switch (path) {
         case "":
         case "#/":
-          app.innerHTML = "home";
-          window.location.hash = "#/";
+          app.innerHTML = Home.render();
+          App.navigate("/");
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 

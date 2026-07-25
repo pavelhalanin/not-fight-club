@@ -1,5 +1,5 @@
 class Registration {
-  static nameKey = "not-fight-club__name";
+  static nameKey = "notFightClub__name";
 
   static render() {
     return `
@@ -31,5 +31,9 @@ class Registration {
     const FORM_DATA = new FormData(event.target);
     const DATA = Object.fromEntries(FORM_DATA.entries());
     console.log(DATA);
+
+    GameUsers.addUserByName(DATA.game_name);
+
+    App.navigate("/");
   }
 }
