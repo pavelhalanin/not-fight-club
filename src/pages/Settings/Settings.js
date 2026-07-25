@@ -28,8 +28,6 @@ class Settings {
       `;
     }
 
-    const POKEMON_ARRAY = GamePokemon.get();
-
     return `
       ${NameWidget.render()}
       <div class="content">
@@ -55,25 +53,6 @@ class Settings {
               >
               <input type="submit" value="Send">
             </form>
-            <div>
-              <p>Change avatar</p>
-              <div class="avatar_array__container">
-                <ul>
-                  ${POKEMON_ARRAY.map((e) => {
-                    return `
-                      <li>
-                        <button onclick="
-                          GameSelectedAvatar.set('${e.id}');
-                          App.navigate('/settings');
-                        ">
-                          <img src="${e.image}" alt="">
-                        </button>
-                      </li>
-                    `;
-                  }).join("")}
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>

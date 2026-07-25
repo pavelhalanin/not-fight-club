@@ -1,3 +1,27 @@
+.character_image__container {
+  width: 200px;
+  height: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+
+  border: 1px solid var(--site-color);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.character_image__container > img {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+/* avatar_array__container */
+
 .avatar_array__container > ul {
   margin: 0;
   padding: 0;

@@ -102,7 +102,7 @@ class App {
           return;
 
         case "#/character":
-          app.innerHTML = `${NameWidget.render()}character`;
+          app.innerHTML = Character.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 

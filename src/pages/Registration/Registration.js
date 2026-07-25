@@ -48,6 +48,6 @@ class Registration {
     GameUsers.addUserByName(NAME);
     GameSelectedAvatar.set("");
 
-    App.navigate("/settings");
+    App.navigate("/character");
   }
 }
