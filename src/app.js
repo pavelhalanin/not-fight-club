@@ -7,45 +7,17 @@ class App {
       return;
     }
 
-    DIV.innerHTML = Audio.renderAudioDisclaimer();
-
-    while (Audio.AudioDisclaimerIsSubmitted()) {
-      await new Promise((resolve) => setTimeout(resolve, 300));
-    }
-
     DIV.innerHTML = `
-      <button
-        class="app__dialog_burger_button"
-        command="show-modal"
-        commandfor="app__dialog_menu"
-      >
-        ☰
-      </button>
-      ${MenuDialog.render()}
+      ${Header.render()}
       <div id="app"></div>
     `;
 
     App.renderRoute();
-    App.init();
-  }
-
-  static init() {
-    document.addEventListener("click", (e) => {
-      const link = e.target.closest("[data-spa-link]");
-      if (link) {
-        e.preventDefault();
-        const href = link.getAttribute("href");
-        history.pushState(null, "", href);
-        this.renderRoute();
-      }
-    });
-
-    window.addEventListener("popstate", this.renderRoute);
   }
 
   static navigate(url) {
     window.location.hash = `#${url}`;
-    this.renderRoute();
+    this.render();
   }
 
   static async renderRoute() {
@@ -58,6 +30,12 @@ class App {
     }
 
     try {
+      app.innerHTML = Audio.renderAudioDisclaimer();
+
+      while (Audio.AudioDisclaimerIsSubmitted()) {
+        await new Promise((resolve) => setTimeout(resolve, 300));
+      }
+
       console.log("path", path);
 
       if (path == "#/posts/" || path == "#/posts") {
@@ -74,6 +52,7 @@ class App {
         });
         return;
       }
+
       const AUDIO = document.getElementById("root_audio");
       switch (path) {
         case "":
@@ -116,7 +95,7 @@ class App {
           return;
 
         case "#/battle":
-          app.innerHTML = `${NameWidget.render()}battle`;
+          app.innerHTML = `battle`;
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 

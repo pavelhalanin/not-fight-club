@@ -1,7 +1,6 @@
 class AboutPage {
   static render() {
     return `
-      ${NameWidget.render()}
       <div class="container">
         <div style="display: flex; flex-direction: column;">
           <h2>About</h2>

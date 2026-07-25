@@ -3,7 +3,6 @@ class Registration {
 
   static render() {
     return `
-      ${NameWidget.render()}
       <div class="game_name__wrapper">
         <form class="game_name__form" onsubmit="${this.name}.onsubmit(event)">
           <p>Register new player:</p>

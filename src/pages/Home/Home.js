@@ -5,7 +5,6 @@ class Home {
 
     if (!USER) {
       return `
-        ${NameWidget.render()}
         <div class="content">
           <div class="container">
             <div class="home__content">
@@ -19,7 +18,6 @@ class Home {
     }
 
     return `
-      ${NameWidget.render()}
       <div class="content">
         <div class="container">
           <div class="home__content">

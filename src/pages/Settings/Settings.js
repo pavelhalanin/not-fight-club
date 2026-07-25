@@ -16,7 +16,6 @@ class Settings {
 
     if (!USER) {
       return `
-        ${NameWidget.render()}
         <div class="content">
           <div class="container">
             <div class="home__content">
@@ -29,7 +28,6 @@ class Settings {
     }
 
     return `
-      ${NameWidget.render()}
       <div class="content">
         <div class="container">
           <div class="home__content">

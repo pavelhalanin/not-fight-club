@@ -5,7 +5,6 @@ class Character {
 
     if (!USER) {
       return `
-        ${NameWidget.render()}
         <div class="content">
           <div class="container">
             <div class="home__content">
@@ -23,7 +22,6 @@ class Character {
     const POKEMON_ARRAY = GamePokemon.get();
 
     return `
-      ${NameWidget.render()}
       <div class="content">
         <div class="container">
           <div class="home__content">

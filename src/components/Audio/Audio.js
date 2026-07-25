@@ -12,7 +12,6 @@ class Audio {
 
   static renderAudioDisclaimer() {
     return `
-      ${NameWidget.render()}
       <div style="display: flex;">
         <div class="audio_disclaimer__content">
           <h2>Audio Disclaimer</h2>
