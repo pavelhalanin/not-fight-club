@@ -76,12 +76,12 @@ class GameBattle {
 
     const DATETIME = new Date().toJSON().slice(0, 19).replace("T", " ");
 
-    const IS_CRITICK_I = RandomHelper.randomInt(0, 1);
+    const IS_CRITICK_I = RandomHelper.randomInt(0, 3) === 0; // 25% (1,2,3 - not critical)
     if (IS_CRITICK_I) {
       hp_attack = -1 * i_attack;
 
       BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] WHO: I (${I.name}) / WHOM: Opponent (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
+        `[${DATETIME}] WHO: ${I.name} / WHOM: (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
       );
 
       BATTLE_OBJECT.logs.push(
@@ -92,7 +92,7 @@ class GameBattle {
       hp_attack = hp_attack < 0 ? hp_attack : 0;
 
       BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] WHO: I (${I.name}) / WHOM: Opponent (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
+        `[${DATETIME}] WHO: ${I.name} / WHOM: Opponent (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
       );
 
       BATTLE_OBJECT.logs.push(
@@ -176,6 +176,26 @@ class GameBattle {
 
         break;
       }
+    }
+
+    const ATTACK_VARIANTS = ["head", "neek", "body", "belly", "legs"];
+
+    const RANDOM_ATTACK_INDEX = RandomHelper.randomInt(
+      0,
+      ATTACK_VARIANTS.length - 1,
+    );
+
+    const RANDOM_OPPONENT_ATTACK = ATTACK_VARIANTS[RANDOM_ATTACK_INDEX];
+
+    BATTLE_OBJECT.hp_i += this.calcAttack(
+      BATTLE_OBJECT,
+      OPPONENT,
+      I,
+      RANDOM_OPPONENT_ATTACK,
+    );
+
+    if (BATTLE_OBJECT.hp_i < 0) {
+      BATTLE_OBJECT.hp_i = 0;
     }
 
     localStorage.setItem(this.key, JSON.stringify(BATTLE_OBJECT));
