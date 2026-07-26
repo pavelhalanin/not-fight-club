@@ -90,7 +90,7 @@ class App {
           return;
 
         case "#/settings":
-          app.innerHTML = Settings.render();
+          app.innerHTML = SettingsPage.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 

@@ -1,4 +1,4 @@
-class Settings {
+class SettingsPage {
   static onsubmit() {
     event.preventDefault();
     const FORM_DATA = new FormData(event.target);
