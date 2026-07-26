@@ -23,11 +23,11 @@ class App {
   static async renderRoute() {
     const path = window.location.hash;
 
-    if (path === '') {
+    if (path === "") {
       App.navigate("/");
       return;
     }
-    
+
     const app = document.getElementById("app");
 
     if (!app) {
@@ -97,7 +97,7 @@ class App {
           return;
 
         case "#/battle":
-          app.innerHTML = `battle`;
+          app.innerHTML = BattlePage.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 
