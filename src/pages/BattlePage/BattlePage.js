@@ -114,7 +114,7 @@ class BattlePage {
               <img src="${I.image}" alt="">
             </div>
             <video id="i_cries_audio" style="display: none;" src="${I.cries}"></video>
-            <div>${BATTLE_INFO.hp_i}</div>
+            ${HpIndicator.render(BATTLE_INFO.hp_i, I.hp)}
           </div>
           ${
             BATTLE_INFO.hp_i === 0
@@ -257,7 +257,7 @@ class BattlePage {
               <img src="${OPPONENT.image}" alt="">
             </div>
             <video id="opponent_cries_audio" style="display: none;" src="${OPPONENT.cries}"></video>
-            <div>${BATTLE_INFO.hp_opponent}</div>
+            ${HpIndicator.render(BATTLE_INFO.hp_opponent, OPPONENT.hp)}
           </div>
         </div>
         <div class="battle_logs__container">
