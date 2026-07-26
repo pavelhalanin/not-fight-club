@@ -83,7 +83,7 @@ class App {
           return;
 
         case "#/character":
-          app.innerHTML = Character.render();
+          app.innerHTML = CharacterPage.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 

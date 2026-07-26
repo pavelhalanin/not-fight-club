@@ -1,4 +1,4 @@
-class Character {
+class CharacterPage {
   static render() {
     const USER_ID = GameSelectedUser.get();
     const USER = GameUsers.getById(USER_ID);
