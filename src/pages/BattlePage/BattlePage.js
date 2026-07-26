@@ -116,124 +116,142 @@ class BattlePage {
             <video id="i_cries_audio" style="display: none;" src="${I.cries}"></video>
             <div>${BATTLE_INFO.hp_i}</div>
           </div>
-          <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
-            <div class="battle_inputs__container">
-              <div>
-                <div>Please pick one attack zone</div>
-                <div>
-                  <label for="attack_head">(${I.attack.head}) Head</label>
-                  <input
-                    type="radio"
-                    name="attack_zone"
-                    value="head"
-                    ${BATTLE_INFO.input_attack_head ? "checked" : ""}
-                    id="attack_head"
-                    onchange="${this.name}.checkForm()"
-                  >
-                </div>
-                <div>
-                  <label for="attack_neek">(${I.attack.neek}) Neek</label>
-                  <input
-                    type="radio"
-                    name="attack_zone"
-                    value="neek"
-                    ${BATTLE_INFO.input_attack_neek ? "checked" : ""}
-                    id="attack_neek"
-                    onchange="${this.name}.checkForm()"
-                  >
-                </div>
-                <div>
-                  <label for="attack_body">(${I.attack.body}) Body</label>
-                  <input
-                    type="radio"
-                    name="attack_zone"
-                    value="body"
-                    ${BATTLE_INFO.input_attack_body ? "checked" : ""}
-                    id="attack_body"
-                    onchange="${this.name}.checkForm()"
-                  >
-                </div>
-                <div>
-                  <label for="attack_belly">(${I.attack.belly}) Belly</label>
-                  <input
-                    type="radio"
-                    name="attack_zone"
-                    value="belly"
-                    ${BATTLE_INFO.input_attack_belly ? "checked" : ""}
-                    id="attack_belly"
-                    onchange="${this.name}.checkForm()"
-                  >
-                </div>
-                <div>
-                  <label for="attack_legs">(${I.attack.legs}) Legs</label>
-                  <input
-                    type="radio"
-                    name="attack_zone"
-                    value="legs"
-                    ${BATTLE_INFO.input_attack_legs ? "checked" : ""}
-                    id="attack_legs"
-                    onchange="${this.name}.checkForm()"
-                  >
-                </div>
-              </div>
-              <div>
-                <div>Please pick two defence zone</div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="defence_zone[head]"
-                    ${BATTLE_INFO.input_defence_head ? "checked" : ""}
-                    id="defence_head"
-                    onchange="${this.name}.checkForm()"
-                  >
-                  <label for="defence_head">Head (${I.defence.head})</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="defence_zone[neek]"
-                    ${BATTLE_INFO.input_defence_neek ? "checked" : ""}
-                    id="defence_neek"
-                    onchange="${this.name}.checkForm()"
-                  >
-                  <label for="defence_neek">Neek (${I.defence.neek})</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="defence_zone[body]"
-                    ${BATTLE_INFO.input_defence_body ? "checked" : ""}
-                    id="defence_body"
-                    onchange="${this.name}.checkForm()"
-                  >
-                  <label for="defence_body">Body (${I.defence.body})</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="defence_zone[belly]"
-                    ${BATTLE_INFO.input_defence_belly ? "checked" : ""}
-                    id="defence_belly"
-                    onchange="${this.name}.checkForm()"
-                  >
-                  <label for="defence_belly">Belly (${I.defence.belly})</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="defence_zone[legs]"
-                    ${BATTLE_INFO.input_defence_legs ? "checked" : ""}
-                    id="defence_legs"
-                    onchange="${this.name}.checkForm()"
-                  >
-                  <label for="defence_legs">Legs (${I.defence.legs})</label>
-                </div>
-              </div>
-            </div>
-            <div class="battle_attack_button__container">
-              <button id="battle_attack_button" disabled>Attack!</button>
-            </div>
-          </form>
+          ${
+            BATTLE_INFO.hp_i === 0
+              ? `
+                  <div style="text-align: center;">
+                    <div class="text-danger">You are fail</div>
+                    <button class="btn" onclick="GameBattle.newBattle()">New battle</button>
+                  </div>
+                `
+              : BATTLE_INFO.hp_opponent === 0
+                ? `
+                    <div style="text-align: center;">
+                      <div class="text-success">You are win</div>
+                      <button class="btn" onclick="GameBattle.newBattle()">New battle</button>
+                    </div>
+                  `
+                : `
+                    <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
+                      <div class="battle_inputs__container">
+                        <div>
+                          <div>Please pick one attack zone</div>
+                          <div>
+                            <label for="attack_head">(${I.attack.head}) Head</label>
+                            <input
+                              type="radio"
+                              name="attack_zone"
+                              value="head"
+                              ${BATTLE_INFO.input_attack_head ? "checked" : ""}
+                              id="attack_head"
+                              onchange="${this.name}.checkForm()"
+                            >
+                          </div>
+                          <div>
+                            <label for="attack_neek">(${I.attack.neek}) Neek</label>
+                            <input
+                              type="radio"
+                              name="attack_zone"
+                              value="neek"
+                              ${BATTLE_INFO.input_attack_neek ? "checked" : ""}
+                              id="attack_neek"
+                              onchange="${this.name}.checkForm()"
+                            >
+                          </div>
+                          <div>
+                            <label for="attack_body">(${I.attack.body}) Body</label>
+                            <input
+                              type="radio"
+                              name="attack_zone"
+                              value="body"
+                              ${BATTLE_INFO.input_attack_body ? "checked" : ""}
+                              id="attack_body"
+                              onchange="${this.name}.checkForm()"
+                            >
+                          </div>
+                          <div>
+                            <label for="attack_belly">(${I.attack.belly}) Belly</label>
+                            <input
+                              type="radio"
+                              name="attack_zone"
+                              value="belly"
+                              ${BATTLE_INFO.input_attack_belly ? "checked" : ""}
+                              id="attack_belly"
+                              onchange="${this.name}.checkForm()"
+                            >
+                          </div>
+                          <div>
+                            <label for="attack_legs">(${I.attack.legs}) Legs</label>
+                            <input
+                              type="radio"
+                              name="attack_zone"
+                              value="legs"
+                              ${BATTLE_INFO.input_attack_legs ? "checked" : ""}
+                              id="attack_legs"
+                              onchange="${this.name}.checkForm()"
+                            >
+                          </div>
+                        </div>
+                        <div>
+                          <div>Please pick two defence zone</div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              name="defence_zone[head]"
+                              ${BATTLE_INFO.input_defence_head ? "checked" : ""}
+                              id="defence_head"
+                              onchange="${this.name}.checkForm()"
+                            >
+                            <label for="defence_head">Head (${I.defence.head})</label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              name="defence_zone[neek]"
+                              ${BATTLE_INFO.input_defence_neek ? "checked" : ""}
+                              id="defence_neek"
+                              onchange="${this.name}.checkForm()"
+                            >
+                            <label for="defence_neek">Neek (${I.defence.neek})</label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              name="defence_zone[body]"
+                              ${BATTLE_INFO.input_defence_body ? "checked" : ""}
+                              id="defence_body"
+                              onchange="${this.name}.checkForm()"
+                            >
+                            <label for="defence_body">Body (${I.defence.body})</label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              name="defence_zone[belly]"
+                              ${BATTLE_INFO.input_defence_belly ? "checked" : ""}
+                              id="defence_belly"
+                              onchange="${this.name}.checkForm()"
+                            >
+                            <label for="defence_belly">Belly (${I.defence.belly})</label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              name="defence_zone[legs]"
+                              ${BATTLE_INFO.input_defence_legs ? "checked" : ""}
+                              id="defence_legs"
+                              onchange="${this.name}.checkForm()"
+                            >
+                            <label for="defence_legs">Legs (${I.defence.legs})</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="battle_attack_button__container">
+                        <button id="battle_attack_button" disabled>Attack!</button>
+                      </div>
+                    </form>
+                  `
+          }
           <div>
             <div class="battle_staff__img_block">
               <img src="${OPPONENT.image}" alt="">

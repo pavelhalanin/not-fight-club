@@ -181,4 +181,9 @@ class GameBattle {
     localStorage.setItem(this.key, JSON.stringify(BATTLE_OBJECT));
     App.render();
   }
+
+  static newBattle() {
+    localStorage.removeItem(this.key);
+    App.render();
+  }
 }
