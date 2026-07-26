@@ -27,8 +27,8 @@ class CharacterPage {
     let count_win = 0;
     let count_fail = 0;
 
-    const KEYS = USER.battle_count;
-    for (let i = 0; i < KEYS; i++) {
+    const KEYS = Object.keys(USER.battle_count);
+    for (let i = 0; i < KEYS.length; i++) {
       const OBJ = USER.battle_count[KEYS[i]];
       count_win += OBJ.win;
       count_fail += OBJ.fail;
