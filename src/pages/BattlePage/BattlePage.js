@@ -115,6 +115,7 @@ class BattlePage {
             </div>
             <video id="i_cries_audio" style="display: none;" src="${I.cries}"></video>
             ${HpIndicator.render(BATTLE_INFO.hp_i, I.hp)}
+            <div>${I.name} (I)</div>
           </div>
           ${
             BATTLE_INFO.hp_i === 0
@@ -258,6 +259,7 @@ class BattlePage {
             </div>
             <video id="opponent_cries_audio" style="display: none;" src="${OPPONENT.cries}"></video>
             ${HpIndicator.render(BATTLE_INFO.hp_opponent, OPPONENT.hp)}
+            <div>${OPPONENT.name} (Opponent)</div>
           </div>
         </div>
         <div class="battle_logs__container">
