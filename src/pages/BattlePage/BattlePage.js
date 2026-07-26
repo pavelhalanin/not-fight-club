@@ -29,7 +29,8 @@ class BattlePage {
     const FORM_DATA = new FormData(event.target);
     const DATA = Object.fromEntries(FORM_DATA.entries());
 
-    console.log(DATA);
+    GameBattle.setBattleCheckbox(DATA);
+    GameBattle.attackLogic();
 
     BUTTON.removeAttribute("disabled");
   }
@@ -50,6 +51,7 @@ class BattlePage {
 
     const FORM_DATA = new FormData(FORM);
     const DATA = Object.fromEntries(FORM_DATA.entries());
+    GameBattle.setBattleCheckbox(DATA);
 
     const KEYS = Object.keys(DATA);
 
@@ -101,6 +103,8 @@ class BattlePage {
     Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 
     const { I, OPPONENT } = GameBattle.getBattleStaff();
+    const BATTLE_INFO = GameBattle.getBattleInfo();
+    const LOGS = (BATTLE_INFO.logs || []).reverse();
 
     return `
       <div class="container">
@@ -110,6 +114,7 @@ class BattlePage {
               <img src="${I.image}" alt="">
             </div>
             <video id="i_cries_audio" style="display: none;" src="${I.cries}"></video>
+            <div>${BATTLE_INFO.hp_i}</div>
           </div>
           <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
             <div class="battle_inputs__container">
@@ -121,6 +126,7 @@ class BattlePage {
                     type="radio"
                     name="attack_zone"
                     value="head"
+                    ${BATTLE_INFO.input_attack_head ? "checked" : ""}
                     id="attack_head"
                     onchange="${this.name}.checkForm()"
                   >
@@ -131,6 +137,7 @@ class BattlePage {
                     type="radio"
                     name="attack_zone"
                     value="neek"
+                    ${BATTLE_INFO.input_attack_neek ? "checked" : ""}
                     id="attack_neek"
                     onchange="${this.name}.checkForm()"
                   >
@@ -141,6 +148,7 @@ class BattlePage {
                     type="radio"
                     name="attack_zone"
                     value="body"
+                    ${BATTLE_INFO.input_attack_body ? "checked" : ""}
                     id="attack_body"
                     onchange="${this.name}.checkForm()"
                   >
@@ -151,6 +159,7 @@ class BattlePage {
                     type="radio"
                     name="attack_zone"
                     value="belly"
+                    ${BATTLE_INFO.input_attack_belly ? "checked" : ""}
                     id="attack_belly"
                     onchange="${this.name}.checkForm()"
                   >
@@ -161,6 +170,7 @@ class BattlePage {
                     type="radio"
                     name="attack_zone"
                     value="legs"
+                    ${BATTLE_INFO.input_attack_legs ? "checked" : ""}
                     id="attack_legs"
                     onchange="${this.name}.checkForm()"
                   >
@@ -172,6 +182,7 @@ class BattlePage {
                   <input
                     type="checkbox"
                     name="defence_zone[head]"
+                    ${BATTLE_INFO.input_defence_head ? "checked" : ""}
                     id="defence_head"
                     onchange="${this.name}.checkForm()"
                   >
@@ -181,6 +192,7 @@ class BattlePage {
                   <input
                     type="checkbox"
                     name="defence_zone[neek]"
+                    ${BATTLE_INFO.input_defence_neek ? "checked" : ""}
                     id="defence_neek"
                     onchange="${this.name}.checkForm()"
                   >
@@ -190,6 +202,7 @@ class BattlePage {
                   <input
                     type="checkbox"
                     name="defence_zone[body]"
+                    ${BATTLE_INFO.input_defence_body ? "checked" : ""}
                     id="defence_body"
                     onchange="${this.name}.checkForm()"
                   >
@@ -199,6 +212,7 @@ class BattlePage {
                   <input
                     type="checkbox"
                     name="defence_zone[belly]"
+                    ${BATTLE_INFO.input_defence_belly ? "checked" : ""}
                     id="defence_belly"
                     onchange="${this.name}.checkForm()"
                   >
@@ -208,6 +222,7 @@ class BattlePage {
                   <input
                     type="checkbox"
                     name="defence_zone[legs]"
+                    ${BATTLE_INFO.input_defence_legs ? "checked" : ""}
                     id="defence_legs"
                     onchange="${this.name}.checkForm()"
                   >
@@ -224,7 +239,13 @@ class BattlePage {
               <img src="${OPPONENT.image}" alt="">
             </div>
             <video id="opponent_cries_audio" style="display: none;" src="${OPPONENT.cries}"></video>
+            <div>${BATTLE_INFO.hp_opponent}</div>
           </div>
+        </div>
+        <div class="battle_logs__container">
+          ${LOGS.map((e) => {
+            return `<div>${e}</div>`;
+          }).join("")}
         </div>
       </div>
     `;

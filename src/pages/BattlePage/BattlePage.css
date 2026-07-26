@@ -48,3 +48,14 @@
 .battle_attack_button__container {
   text-align: center;
 }
+
+/* logs */
+
+.battle_logs__container {
+  height: 250px;
+  overflow-y: scroll;
+  border: 1px solid var(--site-color);
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 8px;
+}

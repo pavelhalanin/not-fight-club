@@ -96,6 +96,7 @@ class App {
 
         case "#/battle":
           app.innerHTML = BattlePage.render();
+          BattlePage.checkForm();
           return;
 
         default:
@@ -106,6 +107,7 @@ class App {
           return;
       }
     } catch (exception) {
+      console.log(exception);
       app.innerHTML = `<p style="color: red;">${exception}</p>`;
     }
   }
