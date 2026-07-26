@@ -96,9 +96,6 @@ class App {
 
         case "#/battle":
           app.innerHTML = BattlePage.render();
-
-          Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
-
           return;
 
         default:
