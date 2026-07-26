@@ -11,6 +11,7 @@ class GamePokemon {
         id: "1",
         name: "Bulbasaur",
         image: "./assets/pokemon/1/1.webp",
+        cries: "./assets/pokemon/1/cries_pokemon_latest_1.ogg",
         hp: 100,
         attack: {
           head: 25,
@@ -31,6 +32,7 @@ class GamePokemon {
         id: "4",
         name: "Charmander",
         image: "./assets/pokemon/4/4.webp",
+        cries: "./assets/pokemon/4/cries_pokemon_latest_4.ogg",
         hp: 100,
         attack: {
           head: 30,
@@ -51,6 +53,7 @@ class GamePokemon {
         id: "7",
         name: "Squirtle",
         image: "./assets/pokemon/7/7.webp",
+        cries: "./assets/pokemon/7/cries_pokemon_latest_7.ogg",
         hp: 100,
         attack: {
           head: 23,
@@ -71,6 +74,7 @@ class GamePokemon {
         id: "106",
         name: "Hitmonlee",
         image: "./assets/pokemon/106/106.webp",
+        cries: "./assets/pokemon/106/cries_pokemon_latest_106.ogg",
         hp: 100,
         attack: {
           head: 28,
@@ -91,6 +95,7 @@ class GamePokemon {
         id: "136",
         name: "Flareon",
         image: "./assets/pokemon/136/136.webp",
+        cries: "./assets/pokemon/136/cries_pokemon_latest_136.ogg",
         hp: 100,
         attack: {
           head: 27,
@@ -111,6 +116,7 @@ class GamePokemon {
         id: "186",
         name: "Politoed",
         image: "./assets/pokemon/186/186.webp",
+        cries: "./assets/pokemon/186/cries_pokemon_latest_186.ogg",
         hp: 100,
         attack: {
           head: 26,
@@ -131,6 +137,7 @@ class GamePokemon {
         id: "271",
         name: "Lombre",
         image: "./assets/pokemon/271/271.webp",
+        cries: "./assets/pokemon/271/cries_pokemon_latest_271.ogg",
         hp: 100,
         attack: {
           head: 24,
@@ -151,6 +158,7 @@ class GamePokemon {
         id: "390",
         name: "Chimchar",
         image: "./assets/pokemon/390/390.webp",
+        cries: "./assets/pokemon/390/cries_pokemon_latest_390.ogg",
         hp: 100,
         attack: {
           head: 29,
