@@ -178,7 +178,9 @@ class GameBattle {
       I,
       RANDOM_OPPONENT_ATTACK,
       true,
-      ["head", "belly"],
+      ["head", "neek", "body", "belly", "legs"]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2),
     );
 
     if (BATTLE_OBJECT.hp_i < 0) {
