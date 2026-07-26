@@ -118,57 +118,17 @@ class GameBattle {
     );
     for (let i = 0; i < KEYS_ATTACK.length; i++) {
       if (BATTLE_OBJECT[KEYS_ATTACK[i]]) {
-        console.log(KEYS_ATTACK[i]);
-
         let hp_attack = 0;
         const IS_CRITICK_I = RandomHelper.randomInt(0, 1);
 
-        switch (KEYS_ATTACK[i]) {
-          case "input_attack_head":
-            BATTLE_OBJECT.hp_opponent += this.calcAttack(
-              BATTLE_OBJECT,
-              I,
-              OPPONENT,
-              "head",
-            );
-            break;
+        const MY_ATTACK = `${KEYS_ATTACK[i]}`.replace("input_attack_", "");
 
-          case "input_attack_neek":
-            BATTLE_OBJECT.hp_opponent += this.calcAttack(
-              BATTLE_OBJECT,
-              I,
-              OPPONENT,
-              "neek",
-            );
-            break;
-
-          case "input_attack_body":
-            BATTLE_OBJECT.hp_opponent += this.calcAttack(
-              BATTLE_OBJECT,
-              I,
-              OPPONENT,
-              "body",
-            );
-            break;
-
-          case "input_attack_belly":
-            BATTLE_OBJECT.hp_opponent += this.calcAttack(
-              BATTLE_OBJECT,
-              I,
-              OPPONENT,
-              "belly",
-            );
-            break;
-
-          case "input_attack_legs":
-            BATTLE_OBJECT.hp_opponent += this.calcAttack(
-              BATTLE_OBJECT,
-              I,
-              OPPONENT,
-              "legs",
-            );
-            break;
-        }
+        BATTLE_OBJECT.hp_opponent += this.calcAttack(
+          BATTLE_OBJECT,
+          I,
+          OPPONENT,
+          MY_ATTACK,
+        );
 
         if (BATTLE_OBJECT.hp_opponent < 0) {
           BATTLE_OBJECT.hp_opponent = 0;
