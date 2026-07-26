@@ -62,3 +62,8 @@
   color: #f8f9fa;
   background-color: #212529;
 }
+
+.battle_win_fail__message {
+  font-size: 2em;
+  padding-bottom: 8px;
+}

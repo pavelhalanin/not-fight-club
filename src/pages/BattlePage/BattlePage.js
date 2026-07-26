@@ -123,14 +123,14 @@ class BattlePage {
             BATTLE_INFO.hp_i === 0
               ? `
                   <div style="text-align: center;">
-                    <div class="text-danger">You are fail</div>
+                    <div class="battle_win_fail__message text-danger">You are fail</div>
                     <button class="btn" onclick="GameBattle.newBattle()">New battle</button>
                   </div>
                 `
               : BATTLE_INFO.hp_opponent === 0
                 ? `
                     <div style="text-align: center;">
-                      <div class="text-success">You are win</div>
+                      <div class="battle_win_fail__message text-success">You are win</div>
                       <button class="btn" onclick="GameBattle.newBattle()">New battle</button>
                     </div>
                   `
