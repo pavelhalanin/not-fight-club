@@ -4,8 +4,6 @@ class DateHelper {
       const d = new Date(strDateTime);
 
       if (isNaN(d)) {
-        console.log(strDateTime);
-        console.log(d);
         return "Invalid Date";
       }
 

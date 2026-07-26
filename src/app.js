@@ -42,8 +42,6 @@ class App {
         await new Promise((resolve) => setTimeout(resolve, 300));
       }
 
-      console.log("path", path);
-
       if (path == "#/posts/" || path == "#/posts") {
         app.innerHTML = Error404Page.render();
         return;
@@ -111,7 +109,6 @@ class App {
           return;
       }
     } catch (exception) {
-      console.log(exception);
       app.innerHTML = `<p style="color: red;">${exception}</p>`;
     }
   }

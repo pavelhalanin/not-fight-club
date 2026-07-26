@@ -63,8 +63,6 @@ class Audio {
 
   static play() {
     const AUDIO = this.getAudio();
-    AUDIO.play().catch((e) => {
-      console.log(e);
-    });
+    AUDIO.play().catch(() => {});
   }
 }

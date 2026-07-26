@@ -10,7 +10,6 @@ class NameWidget {
     const AVATAR_ID = USER?.id_avatar || "";
 
     const POKEMON = GamePokemon.getById(AVATAR_ID);
-    console.log(POKEMON);
 
     if (!POKEMON) {
       return `

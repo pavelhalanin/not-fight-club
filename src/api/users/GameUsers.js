@@ -64,7 +64,6 @@ class GameUsers {
     }
 
     localStorage.setItem(this.key, JSON.stringify(USERS));
-    console.log(`New name "${name}" for id = "${USER_ID}"`);
   }
 
   static changeAvatarId(id_avatar) {
@@ -83,6 +82,5 @@ class GameUsers {
     }
 
     localStorage.setItem(this.key, JSON.stringify(USERS));
-    console.log(`New id_avatar "${id_avatar}" for id = "${USER_ID}"`);
   }
 }
