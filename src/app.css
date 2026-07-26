@@ -39,3 +39,11 @@ body {
   color: var(--site-color);
   background-color: transparent;
 }
+
+.text-success {
+  color: #198754;
+}
+
+.text-danger {
+  color: #dc3545;
+}

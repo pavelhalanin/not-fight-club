@@ -24,6 +24,16 @@ class Character {
     const CREATED_AT = USER?.created_at || "";
     const CREATED_AT_FORMATED = DateHelper.getFormatDateTime(CREATED_AT);
 
+    let count_win = 0;
+    let count_fail = 0;
+
+    const KEYS = USER.battle_count;
+    for (let i = 0; i < KEYS; i++) {
+      const OBJ = USER.battle_count[KEYS[i]];
+      count_win += OBJ.win;
+      count_fail += OBJ.fail;
+    }
+
     return `
       <div class="content">
         <div class="container">
@@ -31,11 +41,15 @@ class Character {
             <div>
               <div>
                 Your Name: ${USER.name}
-                <button onclick="App.navigate('/settings');">change name</button>
+                <button class="btn" onclick="App.navigate('/settings');">change name</button>
               </div>
               <div>Created at: ${CREATED_AT_FORMATED}</div>
               <div class="character_image__container">
                 ${!POKEMON ? "?" : `<img src="${POKEMON.image}" alt="">`}
+              </div>
+              <div style="display: flex;">
+                <div style="width: 50%; text-align: center;" class="text-success">Count win: ${count_win}</div>
+                <div style="width: 50%; text-align: center;" class="text-danger">Count fail: ${count_fail}</div>
               </div>
             </div>
             <div>

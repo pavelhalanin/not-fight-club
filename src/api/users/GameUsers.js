@@ -19,11 +19,22 @@ class GameUsers {
   static addUserByName(username) {
     const ARRAY = this.get();
 
+    const POKEMON_ARRAY = GamePokemon.get();
+    const battle_count = {};
+    for (let i = 0; i < POKEMON_ARRAY.length; i++) {
+      const POKEMON_ID = POKEMON_ARRAY[i].id;
+      battle_count[POKEMON_ID] = {
+        win: 0,
+        fail: 0,
+      };
+    }
+
     const USER = {
       id: generatorId(),
       id_avatar: "",
       created_at: new Date().toJSON().slice(0, 19),
       name: `${username}`,
+      battle_count,
     };
 
     ARRAY.push(USER);
