@@ -21,8 +21,10 @@ class BattlePage {
       return;
     }
 
+    I_CRIES.volume = 0.02;
     I_CRIES.play();
     await sleep(500);
+    OPPONENT_CRIES.volume = 0.02;
     OPPONENT_CRIES.play();
     await sleep(1000);
 

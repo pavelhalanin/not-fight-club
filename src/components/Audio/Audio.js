@@ -36,6 +36,7 @@ class Audio {
 
   static setUrlAndPlay(url) {
     const AUDIO = this.getAudio();
+    AUDIO.volume = 0.1;
 
     const CURRENT_SRC = AUDIO.getAttribute("src");
 
