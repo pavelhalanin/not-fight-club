@@ -22,6 +22,12 @@ class App {
 
   static async renderRoute() {
     const path = window.location.hash;
+
+    if (path === '') {
+      App.navigate("/");
+      return;
+    }
+    
     const app = document.getElementById("app");
 
     if (!app) {
@@ -55,10 +61,6 @@ class App {
 
       const AUDIO = document.getElementById("root_audio");
       switch (path) {
-        case "":
-          App.navigate("/");
-          break;
-
         case "#/":
           app.innerHTML = Home.render();
 
