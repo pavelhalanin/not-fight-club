@@ -1,0 +1,33 @@
+.name_widget__content {
+  min-width: 270px;
+
+  padding: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid var(--site-color);
+  color: var(--site-color);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name_widget__img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 1px solid var(--site-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name_widget__img > img {
+  max-width: 32px;
+  max-height: 32px;
+  width: auto;
+  height: auto;
+}

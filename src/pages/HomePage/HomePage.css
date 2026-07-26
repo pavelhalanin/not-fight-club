@@ -1,0 +1,11 @@
+.home__content {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 1px solid var(--site-color);
+  border-radius: 8px;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

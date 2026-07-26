@@ -1,0 +1,37 @@
+.game_name__wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.game_name__form {
+  max-width: 480px;
+  border: 1px solid var(--site-color);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.game_name__form > p {
+  margin-top: 0;
+}
+
+.game_name__form > input[type="text"] {
+  border: 1px solid var(--site-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.game_name__form > input[type="text"]:focus-visible {
+  outline: none;
+}
+
+.game_name__form > input[type="submit"] {
+  background-color: var(--site-color);
+  color: white;
+  border: 1px solid var(--site-color);
+  padding: 8px;
+  border-radius: 4px;
+}

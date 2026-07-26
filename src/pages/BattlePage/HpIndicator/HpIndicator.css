@@ -1,0 +1,16 @@
+.hp_indicator__container {
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 16px;
+}
+
+.hp_indicator__indicator {
+  background-color: #dc3545;
+  height: 100%;
+}
+
+.hp_value__container {
+  padding-top: 8px;
+  text-align: center;
+}

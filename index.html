@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not fight club</title>
+
+    <link rel="stylesheet" href="src/app.css">
+    <link rel="stylesheet" href="./src/pages/HomePage/HomePage.css">
+    <link rel="stylesheet" href="./src/pages/RegistrationPage/RegistrationPage.css">
+    <link rel="stylesheet" href="./src/pages/RegistrationPage/SignInArray/SignInArray.css">
+    <link rel="stylesheet" href="./src/components/Audio/Audio.css">
+    <link rel="stylesheet" href="./src/components/Header/Header.css">
+    <link rel="stylesheet" href="./src/components/Header/NameWidget/NameWidget.css">
+    <link rel="stylesheet" href="./src/pages/CharacterPage/CharacterPage.css">
+    <link rel="stylesheet" href="./src/pages/BattlePage/BattlePage.css">
+    <link rel="stylesheet" href="./src/pages/BattlePage/HpIndicator/HpIndicator.css">
+</head>
+
+<body>
+    <input type="checkbox" id="audio_disclaimer_checkbox" style="display: none;">
+    <video id="root_audio" style="display: none;"></video>
+    <div id="root"></div>
+    <script src="./src/app.js"></script>
+    <script src="./src/pages/HomePage/HomePage.js"></script>
+    <script src="./src/pages/AboutPage/AboutPage.js"></script>
+    <script src="./src/pages/RegistrationPage/RegistrationPage.js"></script>
+    <script src="./src/pages/RegistrationPage/SignInArray/SignInArray.js"></script>
+    <script src="./src/pages/Error404Page/Error404Page.js"></script>
+    <script src="./src/pages/SettingsPage/SettingsPage.js"></script>
+    <script src="./src/pages/CharacterPage/CharacterPage.js"></script>
+    <script src="./src/components/Audio/Audio.js"></script>
+    <script src="./src/utils/generatorId.js"></script>
+    <script src="./src/api/users/GameUsers.js"></script>
+    <script src="./src/api/selected-user/GameSelectedUser.js"></script>
+    <script src="./src/components/Header/Header.js"></script>
+    <script src="./src/components/Header/NameWidget/NameWidget.js"></script>
+    <script src="./src/api/pokemon/GamePokemon.js"></script>
+    <script src="./src/utils/DateHelper.js"></script>
+    <script src="./src/pages/BattlePage/BattlePage.js"></script>
+    <script src="./src/api/battle/GameBattle.js"></script>
+    <script src="./src/utils/RandomHelper.js"></script>
+    <script src="./src/utils/sleep.js"></script>
+    <script src="./src/pages/BattlePage/HpIndicator/HpIndicator.js"></script>
+    <script>
+        App.render();
+    </script>
+</body>
+
+</html>
