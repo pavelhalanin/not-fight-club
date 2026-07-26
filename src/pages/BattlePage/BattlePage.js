@@ -250,7 +250,7 @@ class BattlePage {
                         </div>
                       </div>
                       <div class="battle_attack_button__container">
-                        <button id="battle_attack_button" disabled>Attack!</button>
+                        <button class="btn" id="battle_attack_button" disabled>Attack!</button>
                       </div>
                     </form>
                   `
