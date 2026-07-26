@@ -75,116 +75,130 @@ class BattlePage {
 
     Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 
+    const {I, OPPONENT} = GameBattle.getBattleStaff();
+
     return `
       <div class="container">
-        <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
-          <div class="battle_inputs__container">
-            <div>
-              <div>Please pick one attack zone</div>
-              <div>
-                <label for="attack_head">Head</label>
-                <input
-                  type="radio"
-                  name="attack_zone"
-                  value="head"
-                  id="attack_head"
-                  onchange="${this.name}.checkForm()"
-                >
-              </div>
-              <div>
-                <label for="attack_neek">Neek</label>
-                <input
-                  type="radio"
-                  name="attack_zone"
-                  value="neek"
-                  id="attack_neek"
-                  onchange="${this.name}.checkForm()"
-                >
-              </div>
-              <div>
-                <label for="attack_body">Body</label>
-                <input
-                  type="radio"
-                  name="attack_zone"
-                  value="body"
-                  id="attack_body"
-                  onchange="${this.name}.checkForm()"
-                >
-              </div>
-              <div>
-                <label for="attack_belly">Belly</label>
-                <input
-                  type="radio"
-                  name="attack_zone"
-                  value="belly"
-                  id="attack_belly"
-                  onchange="${this.name}.checkForm()"
-                >
-              </div>
-              <div>
-                <label for="attack_legs">Legs</label>
-                <input
-                  type="radio"
-                  name="attack_zone"
-                  value="legs"
-                  id="attack_legs"
-                  onchange="${this.name}.checkForm()"
-                >
-              </div>
-            </div>
-            <div>
-              <div>Please pick two defence zone</div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="defence_zone[head]"
-                  id="defence_head"
-                  onchange="${this.name}.checkForm()"
-                >
-                <label for="defence_head">Head</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="defence_zone[neek]"
-                  id="defence_neek"
-                  onchange="${this.name}.checkForm()"
-                >
-                <label for="defence_neek">Neek</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="defence_zone[body]"
-                  id="defence_body"
-                  onchange="${this.name}.checkForm()"
-                >
-                <label for="defence_body">Body</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="defence_zone[belly]"
-                  id="defence_belly"
-                  onchange="${this.name}.checkForm()"
-                >
-                <label for="defence_belly">Belly</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="defence_zone[legs]"
-                  id="defence_legs"
-                  onchange="${this.name}.checkForm()"
-                >
-                <label for="defence_legs">Legs</label>
-              </div>
+        <div class="battle__container">
+          <div>
+            <div class="battle_staff__img_block">
+              <img src="${I.image}" alt="">
             </div>
           </div>
-          <div class="battle_attack_button__container">
-            <button id="battle_attack_button" disabled>Attack!</button>
+          <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
+            <div class="battle_inputs__container">
+              <div>
+                <div>Please pick one attack zone</div>
+                <div>
+                  <label for="attack_head">Head</label>
+                  <input
+                    type="radio"
+                    name="attack_zone"
+                    value="head"
+                    id="attack_head"
+                    onchange="${this.name}.checkForm()"
+                  >
+                </div>
+                <div>
+                  <label for="attack_neek">Neek</label>
+                  <input
+                    type="radio"
+                    name="attack_zone"
+                    value="neek"
+                    id="attack_neek"
+                    onchange="${this.name}.checkForm()"
+                  >
+                </div>
+                <div>
+                  <label for="attack_body">Body</label>
+                  <input
+                    type="radio"
+                    name="attack_zone"
+                    value="body"
+                    id="attack_body"
+                    onchange="${this.name}.checkForm()"
+                  >
+                </div>
+                <div>
+                  <label for="attack_belly">Belly</label>
+                  <input
+                    type="radio"
+                    name="attack_zone"
+                    value="belly"
+                    id="attack_belly"
+                    onchange="${this.name}.checkForm()"
+                  >
+                </div>
+                <div>
+                  <label for="attack_legs">Legs</label>
+                  <input
+                    type="radio"
+                    name="attack_zone"
+                    value="legs"
+                    id="attack_legs"
+                    onchange="${this.name}.checkForm()"
+                  >
+                </div>
+              </div>
+              <div>
+                <div>Please pick two defence zone</div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="defence_zone[head]"
+                    id="defence_head"
+                    onchange="${this.name}.checkForm()"
+                  >
+                  <label for="defence_head">Head</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="defence_zone[neek]"
+                    id="defence_neek"
+                    onchange="${this.name}.checkForm()"
+                  >
+                  <label for="defence_neek">Neek</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="defence_zone[body]"
+                    id="defence_body"
+                    onchange="${this.name}.checkForm()"
+                  >
+                  <label for="defence_body">Body</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="defence_zone[belly]"
+                    id="defence_belly"
+                    onchange="${this.name}.checkForm()"
+                  >
+                  <label for="defence_belly">Belly</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="defence_zone[legs]"
+                    id="defence_legs"
+                    onchange="${this.name}.checkForm()"
+                  >
+                  <label for="defence_legs">Legs</label>
+                </div>
+              </div>
+            </div>
+            <div class="battle_attack_button__container">
+              <button id="battle_attack_button" disabled>Attack!</button>
+            </div>
+          </form>
+          <div>
+            <div class="battle_staff__img_block">
+              <img src="${OPPONENT.image}" alt="">
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     `;
   }

@@ -1,3 +1,36 @@
+.battle__container {
+  display: flex;
+  gap: 8px;
+}
+
+.battle__container > div,
+.battle__container > form {
+  width: 33.33%;
+
+  border: 1px solid var(--site-color);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* staff */
+
+.battle_staff__img_block {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.battle_staff__img_block > img {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+/* attack inputs */
+
 .battle_inputs__container {
   display: flex;
 }
