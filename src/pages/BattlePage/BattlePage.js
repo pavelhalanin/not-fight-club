@@ -75,7 +75,7 @@ class BattlePage {
 
     Audio.setUrlAndPlay(Audio.getTrackUrl("battle"));
 
-    const {I, OPPONENT} = GameBattle.getBattleStaff();
+    const { I, OPPONENT } = GameBattle.getBattleStaff();
 
     return `
       <div class="container">
@@ -90,7 +90,7 @@ class BattlePage {
               <div>
                 <div>Please pick one attack zone</div>
                 <div>
-                  <label for="attack_head">Head</label>
+                  <label for="attack_head">(${I.attack.head}) Head</label>
                   <input
                     type="radio"
                     name="attack_zone"
@@ -100,7 +100,7 @@ class BattlePage {
                   >
                 </div>
                 <div>
-                  <label for="attack_neek">Neek</label>
+                  <label for="attack_neek">(${I.attack.neek}) Neek</label>
                   <input
                     type="radio"
                     name="attack_zone"
@@ -110,7 +110,7 @@ class BattlePage {
                   >
                 </div>
                 <div>
-                  <label for="attack_body">Body</label>
+                  <label for="attack_body">(${I.attack.body}) Body</label>
                   <input
                     type="radio"
                     name="attack_zone"
@@ -120,7 +120,7 @@ class BattlePage {
                   >
                 </div>
                 <div>
-                  <label for="attack_belly">Belly</label>
+                  <label for="attack_belly">(${I.attack.belly}) Belly</label>
                   <input
                     type="radio"
                     name="attack_zone"
@@ -130,7 +130,7 @@ class BattlePage {
                   >
                 </div>
                 <div>
-                  <label for="attack_legs">Legs</label>
+                  <label for="attack_legs">(${I.attack.legs}) Legs</label>
                   <input
                     type="radio"
                     name="attack_zone"
@@ -149,7 +149,7 @@ class BattlePage {
                     id="defence_head"
                     onchange="${this.name}.checkForm()"
                   >
-                  <label for="defence_head">Head</label>
+                  <label for="defence_head">Head (${I.defence.head})</label>
                 </div>
                 <div>
                   <input
@@ -158,7 +158,7 @@ class BattlePage {
                     id="defence_neek"
                     onchange="${this.name}.checkForm()"
                   >
-                  <label for="defence_neek">Neek</label>
+                  <label for="defence_neek">Neek (${I.defence.neek})</label>
                 </div>
                 <div>
                   <input
@@ -167,7 +167,7 @@ class BattlePage {
                     id="defence_body"
                     onchange="${this.name}.checkForm()"
                   >
-                  <label for="defence_body">Body</label>
+                  <label for="defence_body">Body (${I.defence.body})</label>
                 </div>
                 <div>
                   <input
@@ -176,7 +176,7 @@ class BattlePage {
                     id="defence_belly"
                     onchange="${this.name}.checkForm()"
                   >
-                  <label for="defence_belly">Belly</label>
+                  <label for="defence_belly">Belly (${I.defence.belly})</label>
                 </div>
                 <div>
                   <input
@@ -185,7 +185,7 @@ class BattlePage {
                     id="defence_legs"
                     onchange="${this.name}.checkForm()"
                   >
-                  <label for="defence_legs">Legs</label>
+                  <label for="defence_legs">Legs (${I.defence.legs})</label>
                 </div>
               </div>
             </div>

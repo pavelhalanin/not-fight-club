@@ -9,6 +9,6 @@ class GameBattle {
     const RANDOM_INDEX = RandomHelper.randomInt(0, POKEMONS.length - 1);
 
     const OPPONENT = POKEMONS[RANDOM_INDEX];
-    return {I, OPPONENT};
+    return { I, OPPONENT };
   }
 }
