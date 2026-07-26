@@ -158,6 +158,11 @@ class GameBattle {
       BATTLE_OBJECT.hp_i = 0;
     }
 
+    GameUsers.changeBattleCounter(
+      BATTLE_OBJECT.hp_i,
+      BATTLE_OBJECT.hp_opponent,
+    );
+
     localStorage.setItem(this.key, JSON.stringify(BATTLE_OBJECT));
     App.render();
   }

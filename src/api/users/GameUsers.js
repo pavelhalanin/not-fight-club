@@ -83,4 +83,27 @@ class GameUsers {
 
     localStorage.setItem(this.key, JSON.stringify(USERS));
   }
+
+  static changeBattleCounter(hp_i, hp_opponent) {
+    const USER_ID = GameSelectedUser.get();
+    const USERS = this.get();
+
+    for (let i = 0; i < USERS.length; i++) {
+      if (USERS[i].id === USER_ID) {
+        if (hp_i === 0) {
+          USERS[i].battle_count[USERS[i].id_avatar].fail += 1;
+          break;
+        }
+
+        if (hp_opponent === 0) {
+          USERS[i].battle_count[USERS[i].id_avatar].win += 1;
+          break;
+        }
+
+        break;
+      }
+    }
+
+    localStorage.setItem(this.key, JSON.stringify(USERS));
+  }
 }
