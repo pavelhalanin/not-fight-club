@@ -62,7 +62,7 @@ class App {
       const AUDIO = document.getElementById("root_audio");
       switch (path) {
         case "#/":
-          app.innerHTML = Home.render();
+          app.innerHTML = HomePage.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 
