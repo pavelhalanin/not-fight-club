@@ -1,12 +1,37 @@
 class BattlePage {
-  static onsubmit(event) {
+  static async onsubmit(event) {
     event.preventDefault();
     this.checkForm();
+
+    const BUTTON = document.getElementById("battle_attack_button");
+    const OPPONENT_CRIES = document.getElementById("opponent_cries_audio");
+    const I_CRIES = document.getElementById("i_cries_audio");
+
+    BUTTON.setAttribute("disabled", "true");
+
+    if (!BUTTON) {
+      return;
+    }
+
+    if (!OPPONENT_CRIES) {
+      return;
+    }
+
+    if (!I_CRIES) {
+      return;
+    }
+
+    I_CRIES.play();
+    await sleep(500);
+    OPPONENT_CRIES.play();
+    await sleep(1000);
 
     const FORM_DATA = new FormData(event.target);
     const DATA = Object.fromEntries(FORM_DATA.entries());
 
     console.log(DATA);
+
+    BUTTON.removeAttribute("disabled");
   }
 
   static checkForm() {
@@ -84,6 +109,7 @@ class BattlePage {
             <div class="battle_staff__img_block">
               <img src="${I.image}" alt="">
             </div>
+            <video id="i_cries_audio" style="display: none;" src="${I.cries}"></video>
           </div>
           <form onsubmit="${this.name}.onsubmit(event);" id="battle_form">
             <div class="battle_inputs__container">
@@ -197,6 +223,7 @@ class BattlePage {
             <div class="battle_staff__img_block">
               <img src="${OPPONENT.image}" alt="">
             </div>
+            <video id="opponent_cries_audio" style="display: none;" src="${OPPONENT.cries}"></video>
           </div>
         </div>
       </div>

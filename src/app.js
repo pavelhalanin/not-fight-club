@@ -39,7 +39,7 @@ class App {
       app.innerHTML = Audio.renderAudioDisclaimer();
 
       while (Audio.AudioDisclaimerIsSubmitted()) {
-        await new Promise((resolve) => setTimeout(resolve, 300));
+        await sleep(300);
       }
 
       if (path == "#/posts/" || path == "#/posts") {
