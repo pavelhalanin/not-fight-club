@@ -266,7 +266,7 @@ class BattlePage {
         </div>
         <div class="battle_logs__container">
           ${LOGS.map((e) => {
-            return `<div>${e}</div>`;
+            return `<pre>${e}</pre>`;
           }).join("")}
         </div>
       </div>

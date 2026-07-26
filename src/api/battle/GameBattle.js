@@ -69,7 +69,7 @@ class GameBattle {
     return { I, OPPONENT };
   }
 
-  static calcAttack(BATTLE_OBJECT, I, OPPONENT, item) {
+  static calcAttack(BATTLE_OBJECT, I, OPPONENT, item, isOpponent) {
     let hp_attack = 0;
     const i_attack = I.attack[item];
     const opponent_defence = OPPONENT.defence[item];
@@ -77,28 +77,32 @@ class GameBattle {
     const DATETIME = new Date().toJSON().slice(0, 19).replace("T", " ");
 
     const IS_CRITICK_I = RandomHelper.randomInt(0, 3) === 0; // 25% (1,2,3 - not critical)
+
+    let message = "";
     if (IS_CRITICK_I) {
       hp_attack = -1 * i_attack;
 
-      BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] WHO: ${I.name} / WHOM: (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
-      );
-
-      BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] Critical hit. Defense is ignored and you deal damage ${i_attack}`,
-      );
+      message = `\n<span class="text-info">CRITICAL HIT</span>. Defence = ${opponent_defence}), attack = ${i_attack}. So result attack = ${hp_attack} because defence ignored on critical hit`;
     } else {
       hp_attack = opponent_defence - i_attack;
       hp_attack = hp_attack < 0 ? hp_attack : 0;
 
-      BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] WHO: ${I.name} / WHOM: Opponent (${OPPONENT.name}) / WHERE: ${item} / HOW MUCH: ${hp_attack}`,
-      );
-
-      BATTLE_OBJECT.logs.push(
-        `[${DATETIME}] A normal attack. The opponent has ${opponent_defence}, and you deal ${i_attack} damage. This means you deal damage ${hp_attack}`,
-      );
+      message = `\n<span class="text-info">It is normal attack</span>. Defence = ${opponent_defence}, attack = ${i_attack}. So result attack = ${hp_attack}`;
     }
+
+    BATTLE_OBJECT.logs.push(
+      [
+        `[${DATETIME}]`,
+        `WHO: <span class="${isOpponent ? "text-danger" : "text-success"}">${I.name}</span>`,
+        `/`,
+        `WHOM: <span class="${isOpponent ? "text-success" : "text-danger"}">${OPPONENT.name}</span>`,
+        `/`,
+        `WHERE: <span class="text-info">${item}</span>`,
+        `/`,
+        `HOW MUCH: <span class="text-info">${hp_attack}</span>`,
+        `${message}\n`,
+      ].join(" "),
+    );
 
     return hp_attack;
   }
@@ -128,6 +132,7 @@ class GameBattle {
           I,
           OPPONENT,
           MY_ATTACK,
+          false,
         );
 
         if (BATTLE_OBJECT.hp_opponent < 0) {
@@ -152,6 +157,7 @@ class GameBattle {
       OPPONENT,
       I,
       RANDOM_OPPONENT_ATTACK,
+      true,
     );
 
     if (BATTLE_OBJECT.hp_i < 0) {
