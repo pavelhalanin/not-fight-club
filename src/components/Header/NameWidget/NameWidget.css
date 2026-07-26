@@ -1,4 +1,6 @@
 .name_widget__content {
+  min-width: 270px;
+
   padding: 8px;
   border-radius: 8px;
   background-color: transparent;
