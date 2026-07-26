@@ -69,7 +69,14 @@ class GameBattle {
     return { I, OPPONENT };
   }
 
-  static calcAttack(BATTLE_OBJECT, I, OPPONENT, item, isOpponent) {
+  static calcAttack(
+    BATTLE_OBJECT,
+    I,
+    OPPONENT,
+    item,
+    isOpponent,
+    defenceItemArray = [],
+  ) {
     let hp_attack = 0;
     const i_attack = I.attack[item];
     const opponent_defence = OPPONENT.defence[item];
@@ -83,11 +90,16 @@ class GameBattle {
       hp_attack = -1 * i_attack;
 
       message = `\n<span class="text-info">CRITICAL HIT</span>. Defence = ${opponent_defence}), attack = ${i_attack}. So result attack = ${hp_attack} because defence ignored on critical hit`;
-    } else {
+    }
+    if (defenceItemArray.includes(item)) {
       hp_attack = opponent_defence - i_attack;
       hp_attack = hp_attack < 0 ? hp_attack : 0;
 
       message = `\n<span class="text-info">It is normal attack</span>. Defence = ${opponent_defence}, attack = ${i_attack}. So result attack = ${hp_attack}`;
+    } else {
+      hp_attack = -1 * i_attack;
+
+      message = `\n<span class="text-info">It is normal attack</span>. Defence = ${opponent_defence}, attack = ${i_attack}. So result attack = ${hp_attack} because hit ${item} and not defence (${defenceItemArray.join(",")})`;
     }
 
     BATTLE_OBJECT.logs.push(
@@ -120,6 +132,7 @@ class GameBattle {
     const KEYS_ATTACK = Object.keys(BATTLE_OBJECT).filter((e) =>
       e.startsWith("input_attack_"),
     );
+
     for (let i = 0; i < KEYS_ATTACK.length; i++) {
       if (BATTLE_OBJECT[KEYS_ATTACK[i]]) {
         let hp_attack = 0;
@@ -127,12 +140,19 @@ class GameBattle {
 
         const MY_ATTACK = `${KEYS_ATTACK[i]}`.replace("input_attack_", "");
 
+        const MY_DEFENCE = Object.keys(BATTLE_OBJECT)
+          .filter((e) => e.startsWith("input_defence_"))
+          .map((e) => (BATTLE_OBJECT[e] ? e : false))
+          .filter((e) => e)
+          .map((e) => e.replace("input_defence_", ""));
+
         BATTLE_OBJECT.hp_opponent += this.calcAttack(
           BATTLE_OBJECT,
           I,
           OPPONENT,
           MY_ATTACK,
           false,
+          MY_DEFENCE,
         );
 
         if (BATTLE_OBJECT.hp_opponent < 0) {
@@ -158,6 +178,7 @@ class GameBattle {
       I,
       RANDOM_OPPONENT_ATTACK,
       true,
+      ["head", "belly"],
     );
 
     if (BATTLE_OBJECT.hp_i < 0) {
