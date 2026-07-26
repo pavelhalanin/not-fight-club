@@ -76,7 +76,7 @@ class App {
           return;
 
         case "#/registration":
-          app.innerHTML = Registration.render();
+          app.innerHTML = RegistrationPage.render();
 
           Audio.setUrlAndPlay(Audio.getTrackUrl("lobby"));
 
