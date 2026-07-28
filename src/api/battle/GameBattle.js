@@ -90,8 +90,7 @@ class GameBattle {
       hp_attack = -1 * i_attack;
 
       message = `\n<span class="text-info">CRITICAL HIT</span>. Defence = ${opponent_defence}), attack = ${i_attack}. So result attack = ${hp_attack} because defence ignored on critical hit`;
-    }
-    if (defenceItemArray.includes(item)) {
+    } else if (defenceItemArray.includes(item)) {
       hp_attack = opponent_defence - i_attack;
       hp_attack = hp_attack < 0 ? hp_attack : 0;
 
